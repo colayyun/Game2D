@@ -120,7 +120,6 @@ fun Start(m: Modifier, game:Game,screenW:Int){
 
         Text(text = counter2.toString(), modifier = m)
     }
-
 }
 
 /*
