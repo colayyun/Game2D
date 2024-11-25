@@ -139,6 +139,17 @@ fun Start(m: Modifier, game:Game,screenW:Int){
 
     )
 
+    //繪製病毒2
+    Image(
+        painter = painterResource(id = virusImage[game.virus.pictNo]),
+        contentDescription = "病毒",
+        modifier = Modifier
+            .size(70.dp)
+            .offset { IntOffset(game.virus2.x, game.virus2.y) }
+            
+
+    )
+
 
     if (msg == "遊戲暫停" && !game.isPlaying){
         msg = "遊戲結束，按此按鍵重新開始遊戲"

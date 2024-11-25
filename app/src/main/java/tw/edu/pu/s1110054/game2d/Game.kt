@@ -15,6 +15,7 @@ class Game(val scope: CoroutineScope, val screenW:Int, val screenH: Int, scale:F
     val background = Background(screenW)
     val boy = Boy(screenH, scale)
     val virus = Virus(screenW, screenH, scale)
+    val virus2 = Virus(screenW, screenH, scale)
 
     //背景音樂
     var mper1 = MediaPlayer.create(context, R.raw.lastletter)
@@ -29,6 +30,7 @@ class Game(val scope: CoroutineScope, val screenW:Int, val screenH: Int, scale:F
         scope.launch {
             //counter = 0
             isPlaying = true
+            virus2.y=0
 
             while (isPlaying) {
                 mper1.start()  //播放背景音樂
@@ -37,6 +39,7 @@ class Game(val scope: CoroutineScope, val screenW:Int, val screenH: Int, scale:F
                 if (counter % 3 == 0){
                     boy.Walk()
                     virus.Fly()
+                    virus2.Fly()
                     //判斷是否碰撞，結束遊戲
                     if(boy.getRect().intersect(virus.getRect())) {
                         isPlaying = false
